@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form </title> 
+    <link rel="stylesheet" href={% static "accounts/css/register.css" %}>
+   </head>
+<body>
+
+  <div class="form-container">
+    <h2>Registration<h2>
+    <form action={% url "register" %} method="POST">
+        {% csrf_token %}
+        {{ form.username }}
+        {{ form.email }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+        <button type="submit">Sign Up</button>
+    </form>
+    <p class="login-prompt">Already have an account? <a href={% url "login" %}>Click here</a> to log in.</p>
+</div>
+<script>
+  {% if messages %}
+    {% for message in messages %}
+      alert("{{ message }}");
+    {% endfor %}
+  {% endif %}
+</script>
+</body>
+</html>
