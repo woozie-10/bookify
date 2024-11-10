@@ -1,0 +1,23 @@
+{% extends "bookify/base.html" %}
+{% load static %}
+{% block title %}Upload a Book{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href={% static "css/book_upload.css" %}>{% endblock %}
+
+{% block content %}
+<div class="book-form-container">
+    <h2>Upload Book</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+<script>
+    {% if messages %}
+      {% for message in messages %}
+        alert("{{ message }}");
+      {% endfor %}
+    {% endif %}
+</script>
+{% endblock %}

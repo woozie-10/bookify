@@ -1,0 +1,44 @@
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.book-title {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-detail {
+    display: flex;
+    gap: 20px;
+}
+
+.book-cover {
+    width: 200px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.book-info p {
+    font-size: 1em;
+    color: #555;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    background-color: #45a049;
+}

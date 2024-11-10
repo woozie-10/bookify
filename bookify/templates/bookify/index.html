@@ -1,3 +1,34 @@
 {% extends "bookify/base.html" %}
-
+{% load static %}
 {% block title %}Bookify{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href={% static "css/index.css" %}>{% endblock %}
+
+{% block content %}
+<div class="index-container">
+    <header class="index-header">
+        <h1>Welcome to Bookify</h1>
+        <p>Your platform to upload, manage, and share your favorite books!</p>
+    </header>
+
+    <section class="service-info">
+        <h2>What is Bookify?</h2>
+        <p>Bookify is an easy-to-use service that allows you to upload and share your books with the world. Whether you are an author, a book lover, or just someone looking to organize your collection, Bookify is the perfect platform for you!</p>
+        <p>Join us today and start sharing your favorite books with a community of like-minded readers.</p>
+    </section>
+
+    <section class="get-started">
+        <h2>Get Started</h2>
+        <p>If you're new to Bookify, here's how you can get started:</p>
+        <ul>
+            <li>1. <strong>Sign Up</strong> to create an account.</li>
+            <li>2. <strong>Upload</strong> your books with a cover image and description.</li>
+            <li>3. <strong>Explore</strong> other users' collections and share your thoughts.</li>
+        </ul>
+    </section>
+
+    <section class="cta">
+        <h3>Ready to get started?</h3>
+        <a href="{% url 'user_register' %}" class="cta-button">Sign Up Now</a>
+    </section>
+</div>
+{% endblock %}

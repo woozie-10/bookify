@@ -1,0 +1,78 @@
+.index-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.index-header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.index-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.index-header p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+.service-info,
+.get-started {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-info p,
+.get-started p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.get-started ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.get-started li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.cta {
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}

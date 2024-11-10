@@ -1,0 +1,48 @@
+.search-results-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.book-cover {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.book-title:hover {
+    color: #0056b3;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}

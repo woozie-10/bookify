@@ -1,0 +1,18 @@
+{% extends "bookify/base.html" %}
+{% load static %}
+{% block title %}{{ book.name }} - Book Details{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href={% static "css/book_detail.css" %}>{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <h1 class="book-title">{{ book.name }}</h1>
+    <div class="book-detail">
+        <img src="{{ book.cover.url }}" alt="{{ book.name }} cover" class="book-cover">
+        <div class="book-info">
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+            <p><a href="{{ book.file.url }}" class="download-link" download>Download Book</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

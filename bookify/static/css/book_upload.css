@@ -1,0 +1,74 @@
+.book-form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.book-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.book-form-container .form-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.book-form-container .file-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; 
+}
+
+.book-form-container .file-input:focus {
+    outline: none;
+}
+
+.book-form-container button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.book-form-container button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.book-form-container .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .book-form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .book-form-container form {
+        gap: 10px;
+    }
+}
