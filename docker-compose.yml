@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: postgres:17
+    container_name: bookify_db
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: bookify_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_NAME: bookify_db
+      DB_USER: user
+      DB_PASSWORD: password
+    container_name: bookify_app
+    command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    
+
+
+
+
+
+
+volumes:
+  db_data:
