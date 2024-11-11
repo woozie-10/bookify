@@ -14,5 +14,26 @@
             <p><a href="{{ book.file.url }}" class="download-link" download>Download Book</a></p>
         </div>
     </div>
+    {% if book.reviews.all %}
+    
+    <div class="review-list">
+        {% for review in book.reviews.all %}
+            <div class="review-item">
+                <p><strong>{{ review.creator }}:</strong> {{ review.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No reviews yet. Be the first to add one!</p>
+{% endif %}
+
+<div class="review-form-container">
+    <h3 class="add-review-title">Add Your Review</h3>
+    <form method="post" class="review-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-review-button">Submit Review</button>
+    </form>
+</div>
 </div>
 {% endblock %}
