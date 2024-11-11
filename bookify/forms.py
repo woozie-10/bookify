@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book
+from .models import Book, Review
 
 class BookForm(forms.ModelForm):
     class Meta:
@@ -11,4 +11,12 @@ class BookForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'placeholder': 'Description', 'rows': 6, 'required': 'true', 'class': 'form-input',}),
             'file': forms.ClearableFileInput(attrs={'accept': 'application/pdf, .epub, .mobi', 'class': 'file-input', 'required': 'true', 'class': 'file-input'}),
             'cover': forms.ClearableFileInput(attrs={'accept': 'image/*', 'class': 'file-input', 'required': 'true','class': 'file-input'}),
+        }
+        
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Review...', 'rows': 8, 'required': 'true', 'class': 'form-input'}),
         }
