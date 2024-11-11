@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .forms import BookForm
+from .forms import BookForm, ReviewForm
 from .models import Book
 
 
@@ -27,7 +27,7 @@ def book_upload(request):
             book.uploader = request.user
             messages.success(request, "The book uploaded successfully!")
             book.save()
-            return redirect('index')
+            return redirect('book_detail', book_id=book.id)
         else:
             messages.error(request, "Upload failed. Please correct the errors below.")
     else:
@@ -35,8 +35,28 @@ def book_upload(request):
     return render(request, 'bookify/book_upload.html', {'form': form})
 
 def book_detail(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    return render(request, "bookify/book_detail.html", {'book': book})
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                review = form.save(commit=False)
+                review.creator = request.user
+                review.book = book
+                review.save()
+                messages.success(request, "The review was added successfully!")
+                return redirect('book_detail', book_id=book_id)
+            else:
+                messages.error(request, "Review failed. Please correct the errors below.")
+        else:
+            messages.error(request, "You need to be logged in to add a review.")
+            return redirect('user_login')
+    else:
+        form = ReviewForm()
+    
+    return render(request, "bookify/book_detail.html", {'book': book, 'form': form})
+            
+    
 
 def book_search(request):
     query = request.GET.get('q', None)
@@ -53,5 +73,4 @@ def book_delete(request, book_id):
         messages.success(request, "The book has been deleted successfully!")
         return redirect('my_profile')
     return redirect('my_profile')
-        
-    
+ 
